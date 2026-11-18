@@ -1,0 +1,12 @@
+# Pinned for Python 3.10–3.12.
+# pyrofork is the maintained Pyrogram fork and imports as `pyrogram`.
+# The official Pyrogram package (2.0.106) is unmaintained, and TgCrypto
+# 1.2.5 has no Python 3.12 wheels. tgcrypto-pyrofork provides the
+# `tgcrypto` module Pyrofork uses for the MTProto speedup.
+pyrofork==2.3.69
+tgcrypto-pyrofork==1.2.8
+motor==3.7.1
+pymongo==4.20.0
+dnspython==2.9.2
+aiohttp==3.14.5
+python-dotenv==1.2.4

@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+*.session
+*.session-journal
+filesharingbot.txt
+*.log
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.idea/
