@@ -1,0 +1,7 @@
+# Python 3.10-compatible. datetime.UTC arrived in 3.11, so timezone.utc stays.
+target-version = "py310"
+line-length = 100
+
+[lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501", "UP017"]

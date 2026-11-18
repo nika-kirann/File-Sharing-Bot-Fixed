@@ -1,0 +1,139 @@
+{
+  "name": "TG File Sharing Bot",
+  "description": "Telegram bot that stores posts in a private channel and shares them with special links.",
+  "keywords": ["telegram", "file", "sharing"],
+  "repository": "https://github.com/nika-kirann/File-Sharing-Bot-Fixed",
+  "env": {
+    "TG_BOT_TOKEN": {
+      "description": "Bot token from @BotFather",
+      "value": "",
+      "required": true
+    },
+    "APP_ID": {
+      "description": "API ID from https://my.telegram.org",
+      "value": "",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "API hash from https://my.telegram.org",
+      "value": "",
+      "required": true
+    },
+    "CHANNEL_ID": {
+      "description": "Database channel id, for example -1001234567890. A positive t.me/c id is accepted.",
+      "value": "",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Numeric Telegram user id of the owner. This user is always an admin.",
+      "value": "",
+      "required": true
+    },
+    "DATABASE_URL": {
+      "description": "MongoDB connection string (mongodb:// or mongodb+srv://)",
+      "value": "",
+      "required": true
+    },
+    "DATABASE_NAME": {
+      "description": "MongoDB database name",
+      "value": "filesharingbot",
+      "required": false
+    },
+    "PORT": {
+      "description": "HTTP port for the health check. Koyeb and Heroku set this automatically.",
+      "value": "8080",
+      "required": false
+    },
+    "TG_BOT_WORKERS": {
+      "description": "Number of Pyrogram worker threads",
+      "value": "4",
+      "required": false
+    },
+    "ADMINS": {
+      "description": "Optional extra admin user ids, separated by spaces or commas",
+      "value": "",
+      "required": false
+    },
+    "FORCE_SUB_CHANNEL": {
+      "description": "Channel or group id (or @username) users must join. Use 0 to disable.",
+      "value": "0",
+      "required": false
+    },
+    "JOIN_REQUEST_ENABLED": {
+      "description": "true or false. When true, submitting a join request counts as joined. Requires FORCE_SUB_CHANNEL.",
+      "value": "False",
+      "required": false
+    },
+    "START_MESSAGE": {
+      "description": "HTML /start text. Placeholders: {first} {last} {id} {mention} {username}",
+      "value": "Hello {first}\n\nI can store private files in a channel and other users can access them from a special link.",
+      "required": false
+    },
+    "START_PIC": {
+      "description": "Optional public image URL sent with /start. Leave empty for text only.",
+      "value": "",
+      "required": false
+    },
+    "FORCE_SUB_MESSAGE": {
+      "description": "HTML message shown when a user has not joined the force-sub channel",
+      "value": "Hello {first}\n\n<b>You need to join my channel before you can use this link.</b>",
+      "required": false
+    },
+    "CUSTOM_CAPTION": {
+      "description": "Optional caption for documents. Placeholders: {filename} {previouscaption}",
+      "value": "",
+      "required": false
+    },
+    "PROTECT_CONTENT": {
+      "description": "true or false. true stops users from forwarding shared files.",
+      "value": "False",
+      "required": false
+    },
+    "AUTO_DELETE_TIME": {
+      "description": "Seconds before a delivered file is deleted. 0 disables auto-delete.",
+      "value": "0",
+      "required": false
+    },
+    "AUTO_DELETE_MSG": {
+      "description": "Message shown with a delivered file. Placeholder: {time}",
+      "value": "This file will be automatically deleted in {time} seconds. Save anything you need before then.",
+      "required": false
+    },
+    "AUTO_DEL_SUCCESS_MSG": {
+      "description": "Message shown after the file is deleted",
+      "value": "Your file has been deleted. Thank you for using this bot.",
+      "required": false
+    },
+    "DISABLE_CHANNEL_BUTTON": {
+      "description": "true or false. true does not add the Share URL button on database-channel posts.",
+      "value": "False",
+      "required": false
+    },
+    "BOT_STATS_TEXT": {
+      "description": "/stats text. Placeholder: {uptime}",
+      "value": "<b>BOT UPTIME</b>\n{uptime}",
+      "required": false
+    },
+    "USER_REPLY_TEXT": {
+      "description": "Reply sent when a non-admin sends a normal message. Empty disables it.",
+      "value": "I only share files through links. Use a file link, or send /start.",
+      "required": false
+    },
+    "LOG_FILE": {
+      "description": "Log file path, or none to log only to stdout",
+      "value": "filesharingbot.txt",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  }
+}
